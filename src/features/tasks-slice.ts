@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
+import data from '../api/data.json';
 
 export type TasksState = {
   entities: Task[];
@@ -8,7 +9,7 @@ export type TasksState = {
 type DraftTask = RequireOnly<Task, 'title'>;
 
 const initialState: TasksState = {
-  entities: [],
+  entities: data.tasks,
 };
 
 const createTask = (draft: DraftTask): Task => {
